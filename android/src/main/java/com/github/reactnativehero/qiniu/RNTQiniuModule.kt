@@ -1,19 +1,19 @@
 package com.github.reactnativehero.qiniu
 
 import com.facebook.react.bridge.*
+import com.facebook.react.modules.core.DeviceEventManagerModule
 import com.qiniu.android.common.FixedZone
 import com.qiniu.android.storage.Configuration
 import com.qiniu.android.storage.UploadManager
 import com.qiniu.android.storage.UploadOptions
-import com.facebook.react.modules.core.DeviceEventManagerModule
 
 class RNTQiniuModule(private val reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
 
     companion object {
-        private const val ZONE_HUADONG = "1"
-        private const val ZONE_HUABEI = "2"
-        private const val ZONE_HUANAN = "3"
-        private const val ZONE_BEIMEI = "4"
+        private const val ZONE_HUADONG = "huadong"
+        private const val ZONE_HUABEI = "huabei"
+        private const val ZONE_HUANAN = "huanan"
+        private const val ZONE_BEIMEI = "beimei"
         private const val ERROR_CODE_UPLOAD_FAILURE = "1"
     }
 
@@ -59,7 +59,7 @@ class RNTQiniuModule(private val reactContext: ReactApplicationContext) : ReactC
                         ZONE_HUADONG -> FixedZone.zone0
                         ZONE_HUABEI -> FixedZone.zone1
                         ZONE_HUANAN -> FixedZone.zone2
-                        ZONE_BEIMEI -> FixedZone.zoneNa0
+                        else -> FixedZone.zoneNa0
                     }
                 )
                 .build()

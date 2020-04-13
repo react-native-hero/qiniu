@@ -2,10 +2,10 @@
 #import <React/RCTConvert.h>
 #import <QiniuSDK.h>
 
-NSString *ZONE_HUADONG = @"1";
-NSString *ZONE_HUABEI = @"2";
-NSString *ZONE_HUANAN = @"3";
-NSString *ZONE_BEIMEI = @"4";
+NSString *ZONE_HUADONG = @"huadong";
+NSString *ZONE_HUABEI = @"huabei";
+NSString *ZONE_HUANAN = @"huanan";
+NSString *ZONE_BEIMEI = @"beimei";
 
 NSString *ERROR_CODE_UPLOAD_FAILURE = @"1";
 
@@ -14,9 +14,9 @@ NSString *ERROR_CODE_UPLOAD_FAILURE = @"1";
 RCT_EXPORT_MODULE(RNTQiniu);
 
 - (NSArray<NSString *> *)supportedEvents {
-  return @[
-    @"progress"
-  ];
+    return @[
+        @"progress",
+    ];
 }
 
 - (NSDictionary *)constantsToExport {

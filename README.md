@@ -43,26 +43,26 @@ import {
   CODE,
   ZONE,
   upload,
-} from 'react-native-pure-qiniu'
+} from '@react-native-hero/qiniu'
 
 upload(
   {
     // 上传到云端的文件名
     key: 'key',
-    // 本地文件路径
+    // 上传文件的本地路径
     path: '/xx/xx/1.png',
-    // 上传凭证
+    // 上传文件的 mime type
+    mimeType: 'image/png',
+    // 上传凭证，通常由服务器生成传给客户端
     token: '',
     // 机房，传入 ZONE 的枚举值
     zone: ZONE.HUABEI,
-    // 上传文件的 mime type
-    mimeType: 'image/png',
   },
   // 如果需要获取上传进度
   // 传入第二个参数，progress 取值范围为 0-1
   // 如果不需要获取上传进度，最好不传此参数，避免 js/native 频繁通信
   function (progress) {
-
+    // [0, 1]
   }
 )
 .then(data => {
