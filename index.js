@@ -17,14 +17,14 @@ eventEmitter.addListener('progress', function (data) {
 })
 
 export const ZONE = {
-  HUADONG: RNTQiniu.QINIU_ZONE_HUADONG,
-  HUABEI: RNTQiniu.QINIU_ZONE_HUABEI,
-  HUANAN: RNTQiniu.QINIU_ZONE_HUANAN,
-  BEIMEI: RNTQiniu.QINIU_ZONE_BEIMEI,
+  HUADONG: RNTQiniu.ZONE_HUADONG,
+  HUABEI: RNTQiniu.ZONE_HUABEI,
+  HUANAN: RNTQiniu.ZONE_HUANAN,
+  BEIMEI: RNTQiniu.ZONE_BEIMEI,
 }
 
 export const CODE = {
-  UPLOAD_FAILURE: RNTQiniu.QINIU_ERROR_CODE_UPLOAD_FAILURE,
+  UPLOAD_FAILURE: RNTQiniu.ERROR_CODE_UPLOAD_FAILURE,
 }
 
 export function upload(options, onProgress) {

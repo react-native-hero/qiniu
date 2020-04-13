@@ -2,16 +2,21 @@
 #import <React/RCTConvert.h>
 #import <QiniuSDK.h>
 
-NSString *ZONE_HUADONG = @"huadong";
-NSString *ZONE_HUABEI = @"huabei";
-NSString *ZONE_HUANAN = @"huanan";
-NSString *ZONE_BEIMEI = @"beimei";
-
-NSString *ERROR_CODE_UPLOAD_FAILURE = @"1";
-
 @implementation RNTQiniu
 
-RCT_EXPORT_MODULE(RNTQiniu);
+static NSString *ZONE_HUADONG = @"huadong";
+static NSString *ZONE_HUABEI = @"huabei";
+static NSString *ZONE_HUANAN = @"huanan";
+static NSString *ZONE_BEIMEI = @"beimei";
+static NSString *ERROR_CODE_UPLOAD_FAILURE = @"1";
+
++ (BOOL)requiresMainQueueSetup {
+    return YES;
+}
+
+- (dispatch_queue_t)methodQueue {
+    return dispatch_queue_create("com.github.reactnativehero.qiniu", DISPATCH_QUEUE_SERIAL);
+}
 
 - (NSArray<NSString *> *)supportedEvents {
     return @[
@@ -21,13 +26,15 @@ RCT_EXPORT_MODULE(RNTQiniu);
 
 - (NSDictionary *)constantsToExport {
     return @{
-        @"QINIU_ZONE_HUADONG": ZONE_HUADONG,
-        @"QINIU_ZONE_HUABEI": ZONE_HUABEI,
-        @"QINIU_ZONE_HUANAN": ZONE_HUANAN,
-        @"QINIU_ZONE_BEIMEI": ZONE_BEIMEI,
-        @"QINIU_ERROR_CODE_UPLOAD_FAILURE": ERROR_CODE_UPLOAD_FAILURE,
+        @"ZONE_HUADONG": ZONE_HUADONG,
+        @"ZONE_HUABEI": ZONE_HUABEI,
+        @"ZONE_HUANAN": ZONE_HUANAN,
+        @"ZONE_BEIMEI": ZONE_BEIMEI,
+        @"ERROR_CODE_UPLOAD_FAILURE": ERROR_CODE_UPLOAD_FAILURE,
     };
 }
+
+RCT_EXPORT_MODULE(RNTQiniu);
 
 RCT_EXPORT_METHOD(upload:(NSDictionary*)options
                   resolve:(RCTPromiseResolveBlock)resolve

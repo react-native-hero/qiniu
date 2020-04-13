@@ -25,12 +25,12 @@ class RNTQiniuModule(private val reactContext: ReactApplicationContext) : ReactC
 
         val constants: MutableMap<String, Any> = HashMap()
 
-        constants["QINIU_ZONE_HUADONG"] = ZONE_HUADONG
-        constants["QINIU_ZONE_HUABEI"] = ZONE_HUABEI
-        constants["QINIU_ZONE_HUANAN"] = ZONE_HUANAN
-        constants["QINIU_ZONE_BEIMEI"] = ZONE_BEIMEI
+        constants["ZONE_HUADONG"] = ZONE_HUADONG
+        constants["ZONE_HUABEI"] = ZONE_HUABEI
+        constants["ZONE_HUANAN"] = ZONE_HUANAN
+        constants["ZONE_BEIMEI"] = ZONE_BEIMEI
 
-        constants["QINIU_ERROR_CODE_UPLOAD_FAILURE"] = ERROR_CODE_UPLOAD_FAILURE
+        constants["ERROR_CODE_UPLOAD_FAILURE"] = ERROR_CODE_UPLOAD_FAILURE
 
         return constants
 
