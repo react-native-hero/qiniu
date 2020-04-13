@@ -17,14 +17,14 @@ eventEmitter.addListener('progress', function (data) {
 })
 
 export const ZONE = {
-  HUADONG: RNTNetwork.ZONE_HUADONG,
-  HUABEI: RNTNetwork.ZONE_HUABEI,
-  HUANAN: RNTNetwork.ZONE_HUANAN,
-  BEIMEI: RNTNetwork.ZONE_BEIMEI,
+  HUADONG: RNTQiniu.QINIU_ZONE_HUADONG,
+  HUABEI: RNTQiniu.QINIU_ZONE_HUABEI,
+  HUANAN: RNTQiniu.QINIU_ZONE_HUANAN,
+  BEIMEI: RNTQiniu.QINIU_ZONE_BEIMEI,
 }
 
 export const CODE = {
-  UPLOAD_FAILURE: RNTNetwork.ERROR_CODE_UPLOAD_FAILURE,
+  UPLOAD_FAILURE: RNTQiniu.QINIU_ERROR_CODE_UPLOAD_FAILURE,
 }
 
 export function upload(options, onProgress) {
