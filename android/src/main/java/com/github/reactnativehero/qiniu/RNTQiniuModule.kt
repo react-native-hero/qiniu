@@ -46,13 +46,20 @@ class RNTQiniuModule(private val reactContext: ReactApplicationContext) : ReactC
             0
         }
 
+        val timeout = if (options.hasKey("timeout")) {
+            options.getInt("timeout")
+        }
+        else {
+            0
+        }
+
         val path = options.getString("path")
         val key = options.getString("key")
         val zone = options.getString("zone")
         val token = options.getString("token")
         val mimeType = options.getString("mimeType")
 
-        val config = Configuration.Builder()
+        var builder = Configuration.Builder()
                 .useHttps(true)
                 .zone(
                     when (zone) {
@@ -62,8 +69,13 @@ class RNTQiniuModule(private val reactContext: ReactApplicationContext) : ReactC
                         else -> FixedZone.zoneNa0
                     }
                 )
-                .build()
 
+        if (timeout > 0) {
+            builder = builder.connectTimeout(timeout)
+                    .responseTimeout(timeout)
+        }
+
+        val config = builder.build()
         val uploadManager = UploadManager(config)
 
         val uploadOptions = UploadOptions(

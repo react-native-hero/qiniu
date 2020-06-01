@@ -41,6 +41,7 @@ RCT_EXPORT_METHOD(upload:(NSDictionary*)options
                   reject:(RCTPromiseRejectBlock)reject) {
 
     int index = [RCTConvert int:options[@"index"]];
+    int timeout = [RCTConvert int:options[@"timeout"]];
 
     NSString *path = [RCTConvert NSString:options[@"path"]];
     NSString *key = [RCTConvert NSString:options[@"key"]];
@@ -52,6 +53,11 @@ RCT_EXPORT_METHOD(upload:(NSDictionary*)options
             build:^(QNConfigurationBuilder *builder) {
 
                 builder.useHttps = YES;
+        
+                // 超时时间，单位为秒
+                if (timeout > 0) {
+                    builder.timeoutInterval = timeout;
+                }
 
                 if ([zone isEqual: ZONE_HUADONG]) {
                     builder.zone = [QNFixedZone zone0];
