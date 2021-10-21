@@ -36,7 +36,7 @@ android {
 dependencies {
     implementation "com.facebook.react:react-native:${safeExtGet('reactNativeVersion', '+')}"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${safeExtGet('kotlinVersion', '1.3.40')}"
-    implementation "com.qiniu:qiniu-android-sdk:${safeExtGet('qiniuVersion', '7.4.3')}"
+    implementation "com.qiniu:qiniu-android-sdk:${safeExtGet('qiniuVersion', '8.3.3')}"
 }
 
 apply plugin: 'kotlin-android'
